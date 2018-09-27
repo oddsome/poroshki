@@ -1,0 +1,46 @@
+Poroshok grabbler.
+
+
+
+Prerequisites:
+    >= python 3.5
+
+
+
+Either -f (--file) or -p (--page) and -t (--token) must be specified.
+Optional parameter -c (--count) - number of posts to fetch, defaults to 1.
+
+Command line arguments have priority(except for -c parameter) over data
+supplied from file (-f) i.e:
+    app -f FILE -p PAGE          -- will fetch 1 post from PAGE with TOKEN from FILE
+    app -f FILE -p PAGE -t TOKEN -- will ignore -f completely
+    app -f FILE -c COUNT         -- will ignore -c
+    app -f FILE -p PAGE -c COUNT -- will fetch COUNT posts from PAGE with TOKEN from FILE
+    app -p PAGE -t TOKEN         -- will fetch 1 post from PAGE with TOKEN
+    app -p PAGE -t TOKEN --init  -- will fetch ALL posts from PAGE with TOKEN
+    app -f FILE --init           -- will fetch ALL posts from ALL PAGES with TOKEN from FILE
+
+
+
+Description:
+
+    core/
+        api/ - api related url construction modules
+
+        bandwidth - funcs that could be executed no more than n times a second
+        config    - managing command line arguments and ini file
+        fetcher   - fetching and parsing data from vk page
+        messages  - messages
+        parse     - text parsing functions
+        poroshok  - class describing poroshok
+        request   - creating and running http requests
+        response  - handling request response 
+        utils     - misc
+
+    gather - main module
+
+
+
+Windows related:
+    > chcp 65001
+    > set PYTHONIOENCODING=utf-8

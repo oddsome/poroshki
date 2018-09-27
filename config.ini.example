@@ -1,0 +1,9 @@
+# # - commentary
+
+# public = count
+[pages]
+sandalporoshki = 5
+
+# vk app service token to use
+[tokens]
+access_token = 000000000000000000000000000000000a
